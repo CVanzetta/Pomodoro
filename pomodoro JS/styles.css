@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 2em;
+    gap: 1em;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .timer {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .controls button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 5px;
+  }
+  
+  #start-stop {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }
+  
+  #settings {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+  
+  .toggle-container {
+    --active-color : #fff;
+    --inactive-color: #1a1a1a;
+    position: relative;
+    aspect-ratio: 292 / 142;
+    height: 50px; /* Vous pouvez ajuster la hauteur ici selon vos besoins */
+  }
+  
+  .toggle-input {
+    appearance: none;
+    margin: 0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .toggle {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  
+  .toggle-background {
+    fill: var(--inactive-color);
+    transition: fill .4s;
+    
+    .toggle-input:checked + .toggle & {
+      fill: var(--active-color);
+    }
+  }
+  
+  .toggle-circle-center {
+    transform-origin: center;
+    transition: transform .6s;
+  
+    .toggle-input:checked + .toggle & {
+      transform: translateX(150px);
+    }
+  }
+  
+  .toggle-circle {
+    transform-origin: center;
+    backface-visibility: hidden;
+    transition: transform .45s;
+    
+    &.left {
+      transform: scale(1);
+      
+      .toggle-input:checked + .toggle & {
+        transform: scale(0);
+      }
+    }
+    
+    &.right {
+      transform: scale(0);
+      
+      .toggle-input:checked + .toggle & {
+        transform: scale(1);
+      }
+    }
+  }
+  
+  .toggle-icon {
+    transition: fill .4s;
+  
+    &.on {
+      fill: var(--inactive-color);
+  
+      .toggle-input:checked + .toggle & {
+        fill: #1a1a1a;
+      }
+    }
+  
+    &.off {
+      fill: #eaeaec;
+  
+      .toggle-input:checked + .toggle & {
+        fill: var(--active-color);
+      }
+    }
+  }
+  
+  
+  /* Styles for dark mode */
+  .dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  .dark-mode .toggle-container .toggle-label {
+    color: #ffffff;
+  }
+  
